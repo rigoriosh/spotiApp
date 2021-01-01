@@ -1,0 +1,13 @@
+<div class="card-columns mt-5">
+    <div class="card" *ngFor="let item of data; let i=index">        
+      <img class="card-img-top" [src]="item.images | noimage" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
+        <h6 class="card-title">{{item.release_date | date:'Y'}}</h6>
+        <h6 class="card-title">Artistas</h6>
+        <h6 *ngFor="let art of item.artists; let i=index">             
+            <span class="badge badge-primary">{{art.name}}</span>
+        </h6>
+      </div>
+    </div>
+</div> 

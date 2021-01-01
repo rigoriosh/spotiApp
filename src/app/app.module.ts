@@ -13,6 +13,10 @@ import { misRutas } from './app.routes';
 // imporat modulo para hacer peticiones http
 import { HttpClientModule } from '@angular/common/http';
 import { PaisesComponent } from './components/paises/paises.component';
+/////// servicio creado para traer la data de la api de spotify
+import { SpotifyService } from './services/spotify.service';
+import { NoimagePipe } from './pipes/noimage.pipe';
+import { TarjetaComponent } from './components/tarjeta/tarjeta.component';
 
 
 @NgModule({
@@ -22,14 +26,18 @@ import { PaisesComponent } from './components/paises/paises.component';
     BuscarComponent,
     ArtistaComponent,
     NavbarComponent,
-    PaisesComponent
+    PaisesComponent,
+    NoimagePipe,
+    TarjetaComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(misRutas, {useHash: true}),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    SpotifyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
