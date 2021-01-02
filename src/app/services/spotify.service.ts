@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { query } from '@angular/animations';
-import { Observable } from 'rxjs';
+import { map, observeOn } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +8,10 @@ import { Observable } from 'rxjs';
 export class SpotifyService {
 
   data = {};
-  token = 'Bearer BQC5etmKOPM5Qju1SG7lNzEzv5UffhuNSmE2ApO-0g2kyHMpmE7s96DCOO_pybcXHtnsqhjMyugaDVLF0WA';
+  token = 'Bearer BQDN-sWxT7o_PrXB_QlOpiZQpYBCjPr2RlVZH3oDy0HzMIfaxbAdxeXT3kVX_XcCNPefV6I-bNzMj9N0geQ';
 
   constructor(private miHttp: HttpClient) {
-    console.log('service ready');
+    //console.log('service ready');
   }
 
   getQuery(myQuery: string): any {
@@ -30,5 +28,12 @@ export class SpotifyService {
   }
   buscarArtista(termini: any): any{
     return this.getQuery(`search?query=${termini.value}&type=track%2Cartist`).pipe(map((resp: any) => resp.artists.items));
+  }
+  getArtista(id: string): any{
+    return this.getQuery(`artists/${id}`);
+  }
+  getTopTracks(id: string): any{
+    return this.getQuery(`artists/${id}/top-tracks?market=ES`)
+    .pipe(map((data: any) => data.tracks));
   }
 }

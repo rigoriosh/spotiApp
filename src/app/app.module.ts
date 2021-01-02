@@ -17,6 +17,7 @@ import { PaisesComponent } from './components/paises/paises.component';
 import { SpotifyService } from './services/spotify.service';
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { TarjetaComponent } from './components/tarjeta/tarjeta.component';
+import { LoadingComponent } from './components/share/loading/loading.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { TarjetaComponent } from './components/tarjeta/tarjeta.component';
     NavbarComponent,
     PaisesComponent,
     NoimagePipe,
-    TarjetaComponent
+    TarjetaComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

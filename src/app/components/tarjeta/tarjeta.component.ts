@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,6 +10,17 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TarjetaComponent {
 
   @Input() data: any[] = [];
-  constructor(){
-}
+  constructor(private misRutas: Router) {
+  }
+  verArtista(item: any): void {
+    //console.log(item);
+    let idArtista = '';
+    if (item.type === 'artist') {
+      idArtista = item.id;
+    } else {
+      idArtista = item.artists[0].id;
+    }
+    //console.log(idArtista);
+    this.misRutas.navigate(['/artista', idArtista]);
+  }
 }

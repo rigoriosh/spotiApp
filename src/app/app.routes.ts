@@ -6,9 +6,9 @@ import { PaisesComponent } from './components/paises/paises.component';
 
 export const misRutas: Routes = [
     {path: '', pathMatch: 'full', redirectTo: 'home'},
-    // {path: '**', pathMatch: 'full', redirectTo: 'home'},
     {path: 'home', component: HomeComponent},
     {path: 'buqueda', component: BuscarComponent},
-    {path: 'artista', component: ArtistaComponent},
+    {path: 'artista/:id', component: ArtistaComponent},
     {path: 'paises', component: PaisesComponent},
+    {path: '**', pathMatch: 'full', redirectTo: 'home'},
 ];
